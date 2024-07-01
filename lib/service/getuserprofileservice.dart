@@ -20,6 +20,7 @@ print(response.body);
         Map<String, dynamic> responseData = jsonDecode(response.body);
         ProfileModel profileModel = ProfileModel.fromJson(responseData);
         Map<ProfileModel, dynamic> result = {profileModel: responseData};
+        
         print(result);
         return result;
       } else {

@@ -1,4 +1,3 @@
-import 'package:project1univ/models/airplanemodel.dart';
 
 class SearchAirplaneModel {
   final String message;

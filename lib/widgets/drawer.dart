@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:project1univ/models/profilemodel.dart';
+import 'package:project1univ/pages/all_trips_page.dart';
+import 'package:project1univ/pages/unpayed_trips_page.dart';
 import 'package:project1univ/providers/themeprovider.dart';
 import 'package:project1univ/service/logoutservice.dart';
 import 'package:provider/provider.dart';
@@ -26,7 +29,7 @@ ProfileModel ?profileModel ;
   }
   @override
   Widget build(BuildContext context) {
-    // ProfileModel profileModel = widget.userinfoindrawer.keys.first;
+     ProfileModel profileModel = widget.userinfoindrawer.keys.first;
     
     return  Drawer(
       
@@ -36,10 +39,10 @@ UserAccountsDrawerHeader(
   decoration: BoxDecoration(
     color: Colors.blueGrey
   ),
-accountName: Text('${profileModel!.data.Firstname}${profileModel!.data.Lastname}'),
-accountEmail: Text('${profileModel!.data.email}'),
+accountName: Text('${profileModel.data.Firstname}${profileModel.data.Lastname}'),
+accountEmail: Text('${profileModel.data.email}'),
 currentAccountPicture: CircleAvatar(
-backgroundImage:AssetImage("images/photo_2024-06-04_09-50-32.jpg"),
+backgroundImage:NetworkImage("${profileModel.data.visaphoto}"),
 ),
 
 ),
@@ -70,6 +73,19 @@ backgroundImage:AssetImage("images/photo_2024-06-04_09-50-32.jpg"),
             onTap: () {
               Navigator.pushNamed(context, "UpdateProfile");
             },
+          ), ListTile(
+            leading: Icon(FontAwesomeIcons.tent),
+            title: Text('My Trips'),
+            onTap: () {
+            Navigator.push(context, MaterialPageRoute(builder: (context) => AllTrips(),));
+            },
+          ),
+           ListTile(
+            leading: Icon(FontAwesomeIcons.paypal),
+            title: Text('My UnPayed Trips'),
+            onTap: ()async {
+        Navigator.push(context, MaterialPageRoute(builder: (context) => UnPayedTrips(),));
+            },
           ),
           ListTile(
             title: Text('Dark Mode'),
@@ -84,6 +100,7 @@ backgroundImage:AssetImage("images/photo_2024-06-04_09-50-32.jpg"),
               },
             ),
           ),
+           
         ],
       ),
     );

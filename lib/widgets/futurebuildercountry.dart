@@ -3,9 +3,28 @@ import 'package:project1univ/service/getcountries.dart';
 import 'package:project1univ/service/searchcountry.dart';
 import 'package:project1univ/widgets/countrieswidget.dart';
 
-class FutureBuilderCountry extends StatelessWidget {
+// ignore: must_be_immutable
+class FutureBuilderCountry extends StatefulWidget {
    FutureBuilderCountry({super.key});
+
+  @override
+  State<FutureBuilderCountry> createState() => _FutureBuilderCountryState();
+  
+}
+
+class _FutureBuilderCountryState extends State<FutureBuilderCountry> {
+  @override
+void initState() {
+  super.initState();
+  Future.delayed(Duration.zero, () {
+    final snackBar = SnackBar(content: Text('Click On Country to see the Trips in it'));
+    ScaffoldMessenger.of(context).showSnackBar(snackBar);
+  });
+}
 TextEditingController searchcountrynamecontroller= TextEditingController();
+
+
+
   @override
   Widget build(BuildContext context) {
     return Column(children: [

@@ -32,30 +32,35 @@ class SearchCountry {
             builder: (BuildContext context) {
               return AlertDialog(
                 title: Text(searchcountrybyname.data!.name),
-                content: Container(
-                   width: 200,
-        height: 300,
-        decoration: BoxDecoration(
-          image: DecorationImage(
-            image: NetworkImage(searchcountrybyname.data!.photo),
-            fit: BoxFit.cover,
-          ),
-          borderRadius: BorderRadius.circular(50),
-        ),
-                  child: Stack(children: [
-                          Positioned(
-                top: 190,
-                right: BorderSide.strokeAlignCenter,
-                child: searchcountrybyname.data!.rate == "High"
-                    ? Icon(
-                        Icons.favorite,
-                        color: Colors.red,
-                      )
-                    : Text(
-                        "Not Recommended ",
-                        style: TextStyle(fontSize: 15,color: Colors.white,fontFamily: "Pacifico"),
-                      )),
-                  ],)
+                content: GestureDetector(
+                  onTap: (){
+                   // Navigator.push(context, MaterialPageRoute(builder: (context) => TripsWithCountry(),))
+                  },
+                  child: Container(
+                     width: 200,
+                          height: 300,
+                          decoration: BoxDecoration(
+                            image: DecorationImage(
+                              image: NetworkImage(searchcountrybyname.data!.photo),
+                              fit: BoxFit.cover,
+                            ),
+                            borderRadius: BorderRadius.circular(50),
+                          ),
+                    child: Stack(children: [
+                            Positioned(
+                  top: 190,
+                  right: BorderSide.strokeAlignCenter,
+                  child: searchcountrybyname.data!.rate == "High"
+                      ? Icon(
+                          Icons.favorite,
+                          color: Colors.red,
+                        )
+                      : Text(
+                          "Not Recommended ",
+                          style: TextStyle(fontSize: 15,color: Colors.white,fontFamily: "Pacifico"),
+                        )),
+                    ],)
+                  ),
                 ),
                 actions: [
                   TextButton(
@@ -130,5 +135,6 @@ class SearchCountry {
       );
       
     }
+    return null;
   }
 }

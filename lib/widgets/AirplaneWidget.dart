@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:project1univ/models/airplanemodel.dart';
 import 'package:project1univ/pages/Airplane_details_page.dart';
+import 'package:project1univ/pages/tripswithcompany.dart';
 
 // class Airplanewidget extends StatelessWidget {
 //   const Airplanewidget({super.key, required this.airplane});
@@ -86,6 +87,9 @@ class Airplanewidget extends StatelessWidget {
       body: GestureDetector(
         onTap: (){
          Navigator.push(context, MaterialPageRoute(builder: ((context) => AirplaneDetailsPage(airplanedetailes: airplane,) )));
+        },
+        onDoubleTap: (){
+          Navigator.push(context, MaterialPageRoute(builder: (context) => TripsWithAirplane(airplaneforsearchtrip: airplane),));
         },
         child: Container(
           width: 200,

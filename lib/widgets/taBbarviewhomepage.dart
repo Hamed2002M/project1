@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:project1univ/models/countrymodel.dart';
-import 'package:project1univ/service/getcountries.dart';
 import 'package:project1univ/widgets/FutureBuilderAirplane.dart';
-import 'package:project1univ/widgets/countrieswidget.dart';
-import 'package:project1univ/widgets/futurebuidertrip.dart';
+import 'package:project1univ/widgets/futurebuidertripinhomepage.dart';
 import 'package:project1univ/widgets/futurebuildercountry.dart';
 
 class TabBarViewHomePage extends StatelessWidget {

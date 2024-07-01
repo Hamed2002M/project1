@@ -48,7 +48,6 @@ class RegisterAnAccountServices {
         var responseData = jsonDecode(await response.stream.bytesToString());
         print("فات عالرد");
 
-        String message = responseData['message'];
         dynamic data = responseData['Data'];
         print(data);
         token = data["token"];

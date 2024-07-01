@@ -3,8 +3,28 @@ import 'package:project1univ/service/SearchAirplane.dart';
 import 'package:project1univ/service/get_airplancompany.dart';
 import 'package:project1univ/widgets/AirplaneWidget.dart';
 
-class FutureBuilderAirplane extends StatelessWidget {
+// ignore: must_be_immutable
+class FutureBuilderAirplane extends StatefulWidget {
   FutureBuilderAirplane({super.key});
+
+  @override
+  State<FutureBuilderAirplane> createState() => _FutureBuilderAirplaneState();
+}
+
+class _FutureBuilderAirplaneState extends State<FutureBuilderAirplane> {
+
+
+
+
+@override
+void initState() {
+  super.initState();
+  Future.delayed(Duration.zero, () {
+    final snackBar = SnackBar(content: Text('Click once to see company details and twice to see trips within the company'));
+    ScaffoldMessenger.of(context).showSnackBar(snackBar);
+  });
+}
+
   TextEditingController searchairplanenamecontroller = TextEditingController();
 
   @override
